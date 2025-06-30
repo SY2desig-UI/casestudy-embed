@@ -48,6 +48,14 @@
             border-radius: 24px;
         }
         
+        .lock-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+            filter: drop-shadow(0px 4px 8px rgba(89, 124, 136, 0.40));
+        }
+        
         .hover-overlay {
             position: absolute;
             inset: 0;
@@ -55,7 +63,7 @@
             opacity: 0;
             transition: all 0.5s ease-out;
             background: rgba(38, 145, 184, 0.2);
-            backdrop-filter: blur(95px);
+            backdrop-filter: blur(60px);
         }
         
         .embed-container:hover .hover-overlay {
@@ -123,10 +131,12 @@
             font-size: 16px;
             color: white;
             background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            border: 2px solid rgba(255, 255, 255, 0.8);
             border-radius: 8px;
-            outline: none;
+            outline: none !important;
+            box-shadow: none !important;
             font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            transition: border-color 0.2s ease;
         }
         
         .password-input::placeholder {
@@ -134,7 +144,9 @@
         }
         
         .password-input:focus {
-            border-color: rgba(255, 255, 255, 1);
+            border-color: #0C6788;
+            outline: none !important;
+            box-shadow: none !important;
         }
         
         .submit-button {
@@ -143,18 +155,27 @@
             background-color: rgba(255, 255, 255, 1);
             border: none;
             border-radius: 8px;
-            color: #414141;
+            color: #0C6788;
             font-size: 16px;
             line-height: 150%;
             letter-spacing: 0.02em;
             font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             font-weight: 400;
             cursor: pointer;
-            transition: opacity 0.2s ease;
+            transition: all 0.2s ease;
+            outline: none !important;
+            box-shadow: none !important;
         }
         
         .submit-button:hover {
             opacity: 0.9;
+        }
+        
+        .submit-button:focus {
+            background-color: #0C6788;
+            color: #FFFFFF;
+            outline: none !important;
+            box-shadow: none !important;
         }
         
         .error-message {
@@ -191,6 +212,13 @@
         <!-- Base layer - GIF -->
         <div class="base-layer">
             <img src="https://storage.googleapis.com/ky_design_lab/comunity-app.gif" alt="Community App GIF">
+        </div>
+        
+        <!-- Lock icon -->
+        <div class="lock-icon">
+            <svg width="56" height="64" viewBox="0 0 57 61" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19.8214 22.625V19.7188C19.8214 14.9355 23.6786 11 28.5 11C33.2612 11 37.1786 14.9355 37.1786 19.7188V22.625H38.1429C40.2522 22.625 42 24.3809 42 26.5V38.125C42 40.3047 40.2522 42 38.1429 42H18.8571C16.6875 42 15 40.3047 15 38.125V26.5C15 24.3809 16.6875 22.625 18.8571 22.625H19.8214ZM23.6786 22.625H33.3214V19.7188C33.3214 17.0547 31.1518 14.875 28.5 14.875C25.7879 14.875 23.6786 17.0547 23.6786 19.7188V22.625Z" fill="white"/>
+            </svg>
         </div>
         
         <!-- Hover overlay -->
@@ -251,7 +279,7 @@
                 
                 const password = passwordInput.value;
                 
-                if (password === 'PSPR2024') {
+                if (password === 'PfPr2024') {
                     window.open('https://dimly-trend-64942255.figma.site/community-app', '_blank');
                 } else {
                     errorMessage.textContent = 'Incorrect password';
